@@ -23,7 +23,7 @@
   color: #e2ebfd;
 }
 
-.App-body {
+.App-body {  
   background-color: #e2ebfd;
   min-height: 80%;
   display: flex;
@@ -33,6 +33,7 @@
   font-size: calc(10px + 2vmin);
   color: #282c34;
   margin: 0% 10% 0% 10%;
+  height: 780px;
 }
 
 @keyframes App-logo-spin {
@@ -42,4 +43,57 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input {
+  margin: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  height: -webkit-calc(2.5rem + 2px);
+  padding: 0.5rem 1rem;
+  color: #4e5154;
+  border: 1px solid #a2c1f2;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+
+input:focus {
+  color: #343537;
+  border-color: #67ce70;
+  background-color: rgb(243, 243, 243);
+  box-shadow: none;
+  outline: 0;
+}
+
+button {
+  font-size: 0.9rem;
+  line-height: 1.25;
+  height: -webkit-calc(2.5rem + 2px);
+  padding: 0.5rem 1rem;
+  color: #4e5154;
+  border: 1px solid #a2c1f2;
+  border-radius: 0.25rem;
+  background-color: rgb(206, 206, 206);
+  background-clip: padding-box;
+  margin: 3rem;
+  width: 6rem;
+}
+
+button:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.cadasto {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cadastrador{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

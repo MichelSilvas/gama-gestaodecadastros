@@ -1,5 +1,5 @@
 export interface TipoCadastroType {
-  cancel: () => void;
+  fechaCadastro: () => void;
 }
 
 export interface PropriedadeType {
@@ -7,6 +7,7 @@ export interface PropriedadeType {
   tipo: string;
   valor: string;
   placeHolder: string;
+  ehValido: (valor: string) => boolean;
 }
 
 export interface CadastroType {
@@ -20,13 +21,16 @@ export interface CadastroType {
 
 function Cadastrador(props: CadastroType) {
   return (
-    <div>
+    <div className="cadastrador">
       <h1 className="title">{props.title}</h1>
-      <div className="cadasto">
+      <form className="cadasto">
         {props.campos?.map((propriedade, index) => {
+          let tipoMoeda = propriedade.tipo === "moeda";
           return (
             <input
-              type={propriedade.tipo}
+              key={index}
+              type={tipoMoeda ? "number" : propriedade.tipo}
+              step={tipoMoeda ? "0.01" : "any"}
               placeholder={propriedade.placeHolder}
               onChange={(e) =>
                 props.setFieldValue(propriedade.nome, e.target.value)
@@ -34,9 +38,11 @@ function Cadastrador(props: CadastroType) {
             />
           );
         })}
+      </form>
+      <div className="buttons">
+        <button onClick={props.submit}>Salvar</button>
+        <button onClick={props.cancel}>Cancelar</button>
       </div>
-      <button onClick={props.submit}>Salvar</button>
-      <button onClick={props.cancel}>Cancelar</button>
     </div>
   );
 }

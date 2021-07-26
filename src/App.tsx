@@ -1,8 +1,8 @@
 import "./App.css";
-import Header from "./components/header";
+import Header from './components/page/header'
 import { useState } from "react";
-import Cliente from "./components/cliente";
-import Produto from "./components/produto";
+import Cliente from "./components/cadastros/cliente";
+import Produto from "./components/cadastros/produto";
 
 function App() {
   const [exibeTipoCadastro, setExibeTipoCadastro] = useState(true);
@@ -31,8 +31,8 @@ function App() {
         <Header />
       </div>
       <div className="App-body">
-        {cadastroCliente ? <Cliente cancel={fechaCadastro} /> : ""}
-        {cadastroProduto ? <Produto cancel={fechaCadastro} /> : ""}
+        {cadastroCliente ? <Cliente fechaCadastro={fechaCadastro} /> : ""}
+        {cadastroProduto ? <Produto fechaCadastro={fechaCadastro} /> : ""}
         {exibeTipoCadastro ? (
           <div>
             <button onClick={cadastraCliente}>Cliente</button>
